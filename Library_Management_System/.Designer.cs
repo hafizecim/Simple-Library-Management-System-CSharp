@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gradientPanel1 = new Library_Management_System.GradientPanel();
-            this.btnKitapYonetimi = new Library_Management_System.RoundedButtonControl();
-            this.btnYayineviYonetimi = new Library_Management_System.RoundedButtonControl();
-            this.btnYazarYonetimi = new Library_Management_System.RoundedButtonControl();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnYazarYonetimi = new Library_Management_System.RoundedButtonControl();
+            this.btnYayineviYonetimi = new Library_Management_System.RoundedButtonControl();
+            this.btnKitapYonetimi = new Library_Management_System.RoundedButtonControl();
             this.gradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,43 +60,17 @@
             this.gradientPanel1.TopColor = System.Drawing.Color.Violet;
             this.gradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanel1_Paint);
             // 
-            // btnKitapYonetimi
+            // label1
             // 
-            this.btnKitapYonetimi.BackColor = System.Drawing.Color.Transparent;
-            this.btnKitapYonetimi.BorderColor = System.Drawing.Color.White;
-            this.btnKitapYonetimi.BorderRadius = 40;
-            this.btnKitapYonetimi.BorderSize = 2;
-            this.btnKitapYonetimi.ButtonText = "Kitap Yönetimi";
-            this.btnKitapYonetimi.FlatAppearance.BorderSize = 0;
-            this.btnKitapYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKitapYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKitapYonetimi.ForeColor = System.Drawing.Color.White;
-            this.btnKitapYonetimi.HoverBackColor = System.Drawing.Color.Violet;
-            this.btnKitapYonetimi.Location = new System.Drawing.Point(160, 74);
-            this.btnKitapYonetimi.Name = "btnKitapYonetimi";
-            this.btnKitapYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
-            this.btnKitapYonetimi.Size = new System.Drawing.Size(215, 83);
-            this.btnKitapYonetimi.TabIndex = 1;
-            this.btnKitapYonetimi.UseVisualStyleBackColor = false;
-            // 
-            // btnYayineviYonetimi
-            // 
-            this.btnYayineviYonetimi.BackColor = System.Drawing.Color.Transparent;
-            this.btnYayineviYonetimi.BorderColor = System.Drawing.Color.White;
-            this.btnYayineviYonetimi.BorderRadius = 40;
-            this.btnYayineviYonetimi.BorderSize = 2;
-            this.btnYayineviYonetimi.ButtonText = "Yayınevi Yönetimi";
-            this.btnYayineviYonetimi.FlatAppearance.BorderSize = 0;
-            this.btnYayineviYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYayineviYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnYayineviYonetimi.ForeColor = System.Drawing.Color.White;
-            this.btnYayineviYonetimi.HoverBackColor = System.Drawing.Color.Violet;
-            this.btnYayineviYonetimi.Location = new System.Drawing.Point(160, 178);
-            this.btnYayineviYonetimi.Name = "btnYayineviYonetimi";
-            this.btnYayineviYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
-            this.btnYayineviYonetimi.Size = new System.Drawing.Size(215, 83);
-            this.btnYayineviYonetimi.TabIndex = 2;
-            this.btnYayineviYonetimi.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(28, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(490, 31);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Kütüphane Yönetimene Hoş Geldiniz";
             // 
             // btnYazarYonetimi
             // 
@@ -117,18 +91,47 @@
             this.btnYazarYonetimi.TabIndex = 3;
             this.btnYazarYonetimi.Text = "Yazar Yönetimi";
             this.btnYazarYonetimi.UseVisualStyleBackColor = false;
+            this.btnYazarYonetimi.Click += new System.EventHandler(this.btnYazarYonetimi_Click);
             // 
-            // label1
+            // btnYayineviYonetimi
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(28, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(490, 31);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Kütüphane Yönetimene Hoş Geldiniz";
+            this.btnYayineviYonetimi.BackColor = System.Drawing.Color.Transparent;
+            this.btnYayineviYonetimi.BorderColor = System.Drawing.Color.White;
+            this.btnYayineviYonetimi.BorderRadius = 40;
+            this.btnYayineviYonetimi.BorderSize = 2;
+            this.btnYayineviYonetimi.ButtonText = "Yayınevi Yönetimi";
+            this.btnYayineviYonetimi.FlatAppearance.BorderSize = 0;
+            this.btnYayineviYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYayineviYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYayineviYonetimi.ForeColor = System.Drawing.Color.White;
+            this.btnYayineviYonetimi.HoverBackColor = System.Drawing.Color.Violet;
+            this.btnYayineviYonetimi.Location = new System.Drawing.Point(160, 178);
+            this.btnYayineviYonetimi.Name = "btnYayineviYonetimi";
+            this.btnYayineviYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
+            this.btnYayineviYonetimi.Size = new System.Drawing.Size(215, 83);
+            this.btnYayineviYonetimi.TabIndex = 2;
+            this.btnYayineviYonetimi.UseVisualStyleBackColor = false;
+            this.btnYayineviYonetimi.Click += new System.EventHandler(this.btnYayineviYonetimi_Click);
+            // 
+            // btnKitapYonetimi
+            // 
+            this.btnKitapYonetimi.BackColor = System.Drawing.Color.Transparent;
+            this.btnKitapYonetimi.BorderColor = System.Drawing.Color.White;
+            this.btnKitapYonetimi.BorderRadius = 40;
+            this.btnKitapYonetimi.BorderSize = 2;
+            this.btnKitapYonetimi.ButtonText = "Kitap Yönetimi";
+            this.btnKitapYonetimi.FlatAppearance.BorderSize = 0;
+            this.btnKitapYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKitapYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKitapYonetimi.ForeColor = System.Drawing.Color.White;
+            this.btnKitapYonetimi.HoverBackColor = System.Drawing.Color.Violet;
+            this.btnKitapYonetimi.Location = new System.Drawing.Point(160, 74);
+            this.btnKitapYonetimi.Name = "btnKitapYonetimi";
+            this.btnKitapYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
+            this.btnKitapYonetimi.Size = new System.Drawing.Size(215, 83);
+            this.btnKitapYonetimi.TabIndex = 1;
+            this.btnKitapYonetimi.UseVisualStyleBackColor = false;
+            this.btnKitapYonetimi.Click += new System.EventHandler(this.btnKitapYonetimi_Click);
             // 
             // Form1
             // 

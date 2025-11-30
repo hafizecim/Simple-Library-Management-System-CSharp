@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Library_Management_System.Authors;
+using Library_Management_System.Books;
+using Library_Management_System.PublisingHouse;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,6 +61,27 @@ namespace Library_Management_System
         private void rjButton2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnYazarYonetimi_Click(object sender, EventArgs e)
+        {
+            AuthorsManager ac = new AuthorsManager();
+            ac.Show();
+            this.Hide();
+        }
+
+        private void btnKitapYonetimi_Click(object sender, EventArgs e)
+        {
+            BooksManager ac = new BooksManager();
+            ac.Show();
+            this.Hide();
+        }
+
+        private void btnYayineviYonetimi_Click(object sender, EventArgs e)
+        {
+            PublishingHouseManager ac = new PublishingHouseManager();
+            ac.Show();
+            this.Hide();
         }
     }
 }

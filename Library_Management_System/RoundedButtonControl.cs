@@ -13,7 +13,7 @@ namespace Library_Management_System
         public int BorderRadius { get; set; } = 40;
         public int BorderSize { get; set; } = 2;
         public Color BorderColor { get; set; } = Color.White;
-        public string ButtonText { get; set; } = "Button";
+        public string ButtonText { get; set; } = "";
 
         public Color NormalBackColor { get; set; } = Color.Transparent;
         public Color HoverBackColor { get; set; } = Color.DodgerBlue;

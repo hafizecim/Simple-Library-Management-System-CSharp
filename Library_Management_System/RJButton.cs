@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -12,48 +8,38 @@ namespace Library_Management_System
 {
     public class RJButton : Button
     {
-        //Fields
-        private int borderSize = 0;
+        // Alanlar (Fields)
+        private int borderSize = 2;
         private int borderRadius = 40;
-        private Color borderColor = Color.PaleVioletRed;
+        private Color borderColor = Color.White;
 
-        //Properties
+        // Özellikler (Properties)
         [Category("RJ Code Advance")]
         public int BorderSize
         {
             get { return borderSize; }
-            set
-            {
-                borderSize = value;
-                this.Invalidate();
-            }
+            set { borderSize = value; this.Invalidate(); }
         }
 
         [Category("RJ Code Advance")]
         public int BorderRadius
         {
             get { return borderRadius; }
-            set
-            {
-                borderRadius = value;
-                this.Invalidate();
-            }
+            set { borderRadius = value; this.Invalidate(); }
         }
 
         [Category("RJ Code Advance")]
         public Color BorderColor
         {
             get { return borderColor; }
-            set
-            {
-                borderColor = value;
-                this.Invalidate();
-            }
+            set { borderColor = value; this.Invalidate(); }
         }
+
         [Category("RJ Code Advance")]
         public Color BackgroundColor
         {
             get { return this.BackColor; }
+            // Arka planı transparan yapmak için burayı Color.Transparent olarak ayarlayabilirsiniz.
             set { this.BackColor = value; }
         }
 
@@ -64,13 +50,13 @@ namespace Library_Management_System
             set { this.ForeColor = value; }
         }
 
-        //Constructor
+        // Yapıcı (Constructor)
         public RJButton()
         {
             this.FlatStyle = FlatStyle.Flat;
-            this.FlatAppearance.BorderSize = 0;
+            this.FlatAppearance.BorderSize = 2;
             this.Size = new Size(150, 40);
-            this.BackColor = Color.MediumSlateBlue;
+            this.BackColor = Color.Transparent; // Varsayılan dolgu rengi
             this.ForeColor = Color.White;
             this.Resize += new EventHandler(Button_Resize);
         }
@@ -79,57 +65,83 @@ namespace Library_Management_System
         {
             if (borderRadius > this.Height)
                 borderRadius = this.Height;
+            this.Invalidate();
         }
 
-        //Methods
+        // Metot: Yuvarlak Kenarlı Yol Oluşturma
+        // Bu metot, köşelerdeki X sorununu çözmek için daha güvenilir bir yol çizer.
         private GraphicsPath GetFigurePath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
-            path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
-            path.AddArc(rect.Width-radius, rect.Y, radius, radius, 270, 90);
-            path.AddArc(rect.Width-radius, rect.Height-radius, radius, radius, 0, 90);
-            path.AddArc(rect.X, rect.Height-radius, radius, radius, 90, 90);
-            path.CloseFigure();
+            float diameter = radius * 2;
+            RectangleF arcRect = new RectangleF(rect.Location, new SizeF(diameter, diameter));
 
+            path.StartFigure();
+
+            // Üst Sol (Top Left)
+            path.AddArc(arcRect, 180, 90);
+
+            // Üst Sağ (Top Right)
+            arcRect.X = rect.Width - diameter;
+            path.AddArc(arcRect, 270, 90);
+
+            // Alt Sağ (Bottom Right)
+            arcRect.Y = rect.Height - diameter;
+            path.AddArc(arcRect, 0, 90);
+
+            // Alt Sol (Bottom Left)
+            arcRect.X = rect.X;
+            path.AddArc(arcRect, 90, 90);
+
+            path.CloseFigure();
             return path;
         }
 
+        // *** OnPaint Metodu (Çizim İşlemi) ***
+        // *** YENİ OnPaint Metodu (Sorun Çözüldü) ***
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
 
+            // Grafik nesnesini yüksek kaliteli çizim için ayarla
+            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
             Rectangle rectSurface = this.ClientRectangle;
-            Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);
-            int smoothSize = 2;
-            if (borderSize > 0)
-                smoothSize = borderSize;
 
-            if (borderRadius > 2) //Rounded button
+            // Yarıçap > 1 ise yuvarlak köşeleri uygula
+            if (borderRadius > 1)
             {
+                // Yüzey ve kenarlık için tek bir yol oluştur
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
-                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - borderSize))
-                using (Pen penSurface = new Pen(this.Parent.BackColor, smoothSize))
-                using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
-                    pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    //Button surface
-                    this.Region = new Region(pathSurface);
-                    //Draw surface border for HD result
-                    pevent.Graphics.DrawPath(penSurface, pathSurface);
+                    // 1. Düğme Yüzeyi (Dolgu)
+                    using (SolidBrush brushSurface = new SolidBrush(this.BackColor))
+                    {
+                        pevent.Graphics.FillPath(brushSurface, pathSurface);
+                    }
 
-                    //Button border                    
+                    // 2. Bölgeyi Ayarlama (Görünür alanı yuvarlak yola sınırla)
+                    this.Region = new Region(pathSurface);
+
+                    // 3. Kenarlık (Border)
                     if (borderSize >= 1)
-                        //Draw control border
-                        pevent.Graphics.DrawPath(penBorder, pathBorder);
+                    {
+                        using (Pen penBorder = new Pen(borderColor, borderSize))
+                        {
+                            // Kenarlığı yolun merkezine hizala
+                            penBorder.Alignment = PenAlignment.Center;
+
+                            // Kenarlığı çiz
+                            pevent.Graphics.DrawPath(penBorder, pathSurface);
+                        }
+                    }
                 }
             }
-            else //Normal button
+            else // Normal kare düğme
             {
+                // ... (Kare düğme mantığı, önceki kodunuzdaki gibi kalabilir)
                 pevent.Graphics.SmoothingMode = SmoothingMode.None;
-                //Button surface
                 this.Region = new Region(rectSurface);
-                //Button border
                 if (borderSize >= 1)
                 {
                     using (Pen penBorder = new Pen(borderColor, borderSize))
@@ -141,14 +153,20 @@ namespace Library_Management_System
             }
         }
 
+        // ... (Kalan metotlar aynı)
+
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            if (this.Parent != null) // Parent null değilse dinlemeye başla
+            {
+                this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            }
         }
 
         private void Container_BackColorChanged(object sender, EventArgs e)
         {
+            // Ebeveyn rengi değiştiğinde yeniden çizim yap (Transparent arka plan için gerekli)
             this.Invalidate();
         }
     }

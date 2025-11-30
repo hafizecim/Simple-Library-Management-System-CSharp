@@ -54,5 +54,10 @@ namespace Library_Management_System
         {
 
         }
+
+        private void rjButton2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

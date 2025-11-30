@@ -5,84 +5,89 @@ using System.Windows.Forms;
 
 namespace Library_Management_System
 {
-    public class RoundedButtonControl : UserControl
+    public class RoundedButtonControl : Button
     {
-        private int borderRadius = 20;
-        public int BorderRadius
-        {
-            get { return borderRadius; }
-            set { borderRadius = value; this.Invalidate(); }
-        }
+        private bool isHovered = false;
 
-        private string buttonText = "Button";
-        public string ButtonText
-        {
-            get { return buttonText; }
-            set { buttonText = value; this.Invalidate(); }
-        }
+        // ---- Public Properties ----
+        public int BorderRadius { get; set; } = 40;
+        public int BorderSize { get; set; } = 2;
+        public Color BorderColor { get; set; } = Color.White;
+        public string ButtonText { get; set; } = "Button";
 
-        private int borderSize = 1; // 1px kenarlık
-        public int BorderSize
-        {
-            get { return borderSize; }
-            set { borderSize = value; this.Invalidate(); }
-        }
+        public Color NormalBackColor { get; set; } = Color.Transparent;
+        public Color HoverBackColor { get; set; } = Color.DodgerBlue;
 
-        private Color borderColor = Color.White; // beyaz kenarlık
-        public Color BorderColor
-        {
-            get { return borderColor; }
-            set { borderColor = value; this.Invalidate(); }
-        }
 
+        // ---- Constructor ----
         public RoundedButtonControl()
         {
-            this.Size = new Size(120, 50);
-            this.BackColor = Color.Transparent; // tamamen şeffaf
-            this.ForeColor = Color.White; // yazı beyaz
-            this.Font = new Font("Segoe UI", 10, FontStyle.Bold); // yazı kalın
-            this.Cursor = Cursors.Hand;
+            this.FlatStyle = FlatStyle.Flat;
+            this.FlatAppearance.BorderSize = 0;
+            this.BackColor = NormalBackColor;
 
-            // Şeffaflık için stil
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.MouseEnter += (s, e) =>
+            {
+                isHovered = true;
+                this.BackColor = HoverBackColor;
+                this.Invalidate();
+            };
+
+            this.MouseLeave += (s, e) =>
+            {
+                isHovered = false;
+                this.BackColor = NormalBackColor;
+                this.Invalidate();
+            };
         }
 
+        // ---- Rounded Path ----
+        GraphicsPath GetRoundPath(RectangleF Rect, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            float curve = radius * 2F;
+
+            path.AddArc(Rect.X, Rect.Y, curve, curve, 180, 90);
+            path.AddArc(Rect.Width - curve, Rect.Y, curve, curve, 270, 90);
+            path.AddArc(Rect.Width - curve, Rect.Height - curve, curve, curve, 0, 90);
+            path.AddArc(Rect.X, Rect.Height - curve, curve, curve, 90, 90);
+
+            path.CloseFigure();
+            return path;
+        }
+
+        // ---- Painting ----
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            // Kenarlık için inset edilmiş dikdörtgen (bozuk piksel sorunu çözülür)
-            Rectangle rect = new Rectangle(borderSize / 2, borderSize / 2,
-                                           this.Width - borderSize, this.Height - borderSize);
-
-            // Yuvarlatılmış köşe path'i oluştur
-            GraphicsPath path = new GraphicsPath();
-            int radius = borderRadius;
-
-            path.StartFigure();
-            path.AddArc(new Rectangle(rect.Left, rect.Top, radius, radius), 180, 90);
-            path.AddArc(new Rectangle(rect.Right - radius, rect.Top, radius, radius), -90, 90);
-            path.AddArc(new Rectangle(rect.Right - radius, rect.Bottom - radius, radius, radius), 0, 90);
-            path.AddArc(new Rectangle(rect.Left, rect.Bottom - radius, radius, radius), 90, 90);
-            path.CloseFigure();
+            RectangleF rect = new RectangleF(0, 0, this.Width, this.Height);
+            GraphicsPath path = GetRoundPath(rect, BorderRadius);
 
             this.Region = new Region(path);
 
-            // Kenarlık çizimi
-            if (borderSize > 0)
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            // Draw border
+            if (BorderSize > 0)
             {
-                using (Pen pen = new Pen(borderColor, borderSize))
+                using (Pen pen = new Pen(BorderColor, BorderSize))
                 {
-                    pen.Alignment = PenAlignment.Inset; // kenarlık düzgün hizalanır
+                    pen.Alignment = PenAlignment.Inset;
                     e.Graphics.DrawPath(pen, path);
                 }
             }
 
-            // Yazı
-            TextRenderer.DrawText(e.Graphics, buttonText, this.Font, rect, this.ForeColor,
-                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            // Draw text (center)
+            TextRenderer.DrawText(
+                e.Graphics,
+                ButtonText,
+                this.Font,
+                this.ClientRectangle,
+                this.ForeColor = Color.White,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+               
+            );
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Library_Management_System
         public string ButtonText { get; set; } = "";
 
         public Color NormalBackColor { get; set; } = Color.Transparent;
-        public Color HoverBackColor { get; set; } = Color.DodgerBlue;
+        public Color HoverBackColor { get; set; } = Color.Violet;
 
 
         // ---- Constructor ----
@@ -86,7 +86,7 @@ namespace Library_Management_System
                 this.ClientRectangle,
                 this.ForeColor = Color.White,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-               
+
             );
         }
     }

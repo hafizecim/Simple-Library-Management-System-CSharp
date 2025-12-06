@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// Bir bütünleştirilmiş koda ilişkin Genel Bilgiler aşağıdaki öznitelikler kümesiyle
-// denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
-// bu öznitelik değerlerini değiştirin.
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
 [assembly: AssemblyTitle("Library_Management_System")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -14,20 +14,20 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// ComVisible özniteliğinin false olarak ayarlanması bu bütünleştirilmiş koddaki türleri
-// COM bileşenleri için görünmez yapar. Bu bütünleştirilmiş koddaki bir türe
-// erişmeniz gerekirse ComVisible özniteliğini o türde true olarak ayarlayın.
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-// Bu proje COM'un kullanımına sunulursa, aşağıdaki GUID tür kitaplığının kimliği içindir
-[assembly: Guid("589bcd13-70c4-4afd-8a51-0dfe5aee13a6")]
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("1adf26ee-df7d-40f3-888c-d3e358ac82c6")]
 
-// Bir derlemenin sürüm bilgileri aşağıdaki dört değerden oluşur:
+// Version information for an assembly consists of the following four values:
 //
-//      Ana Sürüm
-//      İkincil Sürüm 
-//      Yapı Numarası
-//      Düzeltme
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

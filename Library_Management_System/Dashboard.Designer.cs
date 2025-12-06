@@ -1,16 +1,16 @@
 ﻿namespace Library_Management_System
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
-        ///Gerekli tasarımcı değişkeni.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///Kullanılan tüm kaynakları temizleyin.
+        /// Clean up any resources being used.
         /// </summary>
-        ///<param name="disposing">yönetilen kaynaklar dispose edilmeliyse doğru; aksi halde yanlış.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer üretilen kod
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Tasarımcı desteği için gerekli metot - bu metodun 
-        ///içeriğini kod düzenleyici ile değiştirmeyin.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -55,7 +55,7 @@
             this.gradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(556, 405);
+            this.gradientPanel1.Size = new System.Drawing.Size(596, 459);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.Violet;
             this.gradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanel1_Paint);
@@ -66,11 +66,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(28, 20);
+            this.label1.Location = new System.Drawing.Point(34, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(490, 31);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Kütüphane Yönetimene Hoş Geldiniz";
+            this.label1.Size = new System.Drawing.Size(532, 31);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Kütüphane Otomasyonuna Hoş Geldiniz";
             // 
             // btnYazarYonetimi
             // 
@@ -84,11 +84,11 @@
             this.btnYazarYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnYazarYonetimi.ForeColor = System.Drawing.Color.White;
             this.btnYazarYonetimi.HoverBackColor = System.Drawing.Color.Violet;
-            this.btnYazarYonetimi.Location = new System.Drawing.Point(160, 282);
+            this.btnYazarYonetimi.Location = new System.Drawing.Point(151, 329);
             this.btnYazarYonetimi.Name = "btnYazarYonetimi";
             this.btnYazarYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
-            this.btnYazarYonetimi.Size = new System.Drawing.Size(215, 83);
-            this.btnYazarYonetimi.TabIndex = 3;
+            this.btnYazarYonetimi.Size = new System.Drawing.Size(249, 90);
+            this.btnYazarYonetimi.TabIndex = 2;
             this.btnYazarYonetimi.Text = "Yazar Yönetimi";
             this.btnYazarYonetimi.UseVisualStyleBackColor = false;
             this.btnYazarYonetimi.Click += new System.EventHandler(this.btnYazarYonetimi_Click);
@@ -99,17 +99,18 @@
             this.btnYayineviYonetimi.BorderColor = System.Drawing.Color.White;
             this.btnYayineviYonetimi.BorderRadius = 40;
             this.btnYayineviYonetimi.BorderSize = 2;
-            this.btnYayineviYonetimi.ButtonText = "Yayınevi Yönetimi";
+            this.btnYayineviYonetimi.ButtonText = "";
             this.btnYayineviYonetimi.FlatAppearance.BorderSize = 0;
             this.btnYayineviYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYayineviYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnYayineviYonetimi.ForeColor = System.Drawing.Color.White;
             this.btnYayineviYonetimi.HoverBackColor = System.Drawing.Color.Violet;
-            this.btnYayineviYonetimi.Location = new System.Drawing.Point(160, 178);
+            this.btnYayineviYonetimi.Location = new System.Drawing.Point(151, 205);
             this.btnYayineviYonetimi.Name = "btnYayineviYonetimi";
             this.btnYayineviYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
-            this.btnYayineviYonetimi.Size = new System.Drawing.Size(215, 83);
-            this.btnYayineviYonetimi.TabIndex = 2;
+            this.btnYayineviYonetimi.Size = new System.Drawing.Size(249, 90);
+            this.btnYayineviYonetimi.TabIndex = 1;
+            this.btnYayineviYonetimi.Text = "Yayınevi Yönetimi";
             this.btnYayineviYonetimi.UseVisualStyleBackColor = false;
             this.btnYayineviYonetimi.Click += new System.EventHandler(this.btnYayineviYonetimi_Click);
             // 
@@ -119,29 +120,30 @@
             this.btnKitapYonetimi.BorderColor = System.Drawing.Color.White;
             this.btnKitapYonetimi.BorderRadius = 40;
             this.btnKitapYonetimi.BorderSize = 2;
-            this.btnKitapYonetimi.ButtonText = "Kitap Yönetimi";
+            this.btnKitapYonetimi.ButtonText = "";
             this.btnKitapYonetimi.FlatAppearance.BorderSize = 0;
             this.btnKitapYonetimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKitapYonetimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKitapYonetimi.ForeColor = System.Drawing.Color.White;
             this.btnKitapYonetimi.HoverBackColor = System.Drawing.Color.Violet;
-            this.btnKitapYonetimi.Location = new System.Drawing.Point(160, 74);
+            this.btnKitapYonetimi.Location = new System.Drawing.Point(151, 84);
             this.btnKitapYonetimi.Name = "btnKitapYonetimi";
             this.btnKitapYonetimi.NormalBackColor = System.Drawing.Color.Transparent;
-            this.btnKitapYonetimi.Size = new System.Drawing.Size(215, 83);
-            this.btnKitapYonetimi.TabIndex = 1;
+            this.btnKitapYonetimi.Size = new System.Drawing.Size(249, 90);
+            this.btnKitapYonetimi.TabIndex = 0;
+            this.btnKitapYonetimi.Text = "Kitap Yönetimi";
             this.btnKitapYonetimi.UseVisualStyleBackColor = false;
             this.btnKitapYonetimi.Click += new System.EventHandler(this.btnKitapYonetimi_Click);
             // 
-            // Form1
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 405);
+            this.ClientSize = new System.Drawing.Size(596, 459);
             this.Controls.Add(this.gradientPanel1);
-            this.Name = "Form1";
+            this.Name = "Dashboard";
             this.Text = "Kütüphane Otomasyonuna Hoş Geldiniz";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.gradientPanel1.ResumeLayout(false);
             this.gradientPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -151,11 +153,11 @@
         #endregion
 
         private GradientPanel gradientPanel1;
-        private System.Windows.Forms.Timer timer1;
         private RoundedButtonControl btnKitapYonetimi;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
         private RoundedButtonControl btnYazarYonetimi;
         private RoundedButtonControl btnYayineviYonetimi;
+        private System.Windows.Forms.Label label1;
     }
 }
 

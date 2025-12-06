@@ -18,7 +18,9 @@ namespace Library_Management_System
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, this.TopColor, this.BottomColor, this.Angle);
+            //LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, this.TopColor=Color.Violet, this.BottomColor=Color.Indigo, this.Angle=50);
+            LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, this.TopColor , this.BottomColor , this.Angle);
+
             Graphics g = e.Graphics;
             g.FillRectangle(brush, this.ClientRectangle);
             base.OnPaint(e);

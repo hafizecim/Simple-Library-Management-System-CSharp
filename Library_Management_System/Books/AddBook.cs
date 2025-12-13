@@ -24,5 +24,20 @@ namespace Library_Management_System.Books
             gradientPanel1.BottomColor = Color.FromArgb(rnd.Next(255), rnd.Next(255), rnd.Next(255));
             gradientPanel1.Invalidate();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundedButtonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

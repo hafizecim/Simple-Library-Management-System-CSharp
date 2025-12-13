@@ -19,6 +19,7 @@ namespace Library_Management_System.Books
             timer1.Start();
             YazarDoldur();
             YayineviDoldur();
+            TurDoldur();
         }
 
         Random rnd = new Random();
@@ -27,6 +28,7 @@ namespace Library_Management_System.Books
             gradientPanel1.BottomColor = Color.FromArgb(rnd.Next(255), rnd.Next(255), rnd.Next(255));
             gradientPanel1.Invalidate();
         }
+        
         // ---------------- YAZAR DOLDUR ----------------
         public void YazarDoldur()
         {
@@ -65,6 +67,26 @@ namespace Library_Management_System.Books
 
             }
         }
+
+        // ---------------- TUR DOLDUR ----------------
+        public void TurDoldur()
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+
+                SqlCommand sorgu = new SqlCommand("SELECT * from tur", baglanti);
+                SqlDataAdapter veriTut = new SqlDataAdapter(sorgu);
+                DataTable dt = new DataTable();
+                veriTut.Fill(dt);
+
+                cbTuru.DataSource = dt;
+                cbTuru.DisplayMember = "tur_ad";
+                cbTuru.ValueMember = "tur_id";
+
+            }
+        }
+
+
 
         private void label2_Click(object sender, EventArgs e)
         {

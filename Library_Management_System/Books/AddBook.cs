@@ -17,6 +17,7 @@ namespace Library_Management_System.Books
         {
             InitializeComponent();
             timer1.Start();
+            YazarDoldur();
         }
 
         Random rnd = new Random();
@@ -24,6 +25,25 @@ namespace Library_Management_System.Books
         {
             gradientPanel1.BottomColor = Color.FromArgb(rnd.Next(255), rnd.Next(255), rnd.Next(255));
             gradientPanel1.Invalidate();
+        }
+        // ---------------- YAZAR DOLDUR ----------------
+        public void YazarDoldur()
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+
+                SqlCommand sorgu = new SqlCommand("SELECT * from yazarlar", baglanti);
+                SqlDataAdapter veriTut = new SqlDataAdapter(sorgu);
+                DataTable dt = new DataTable();
+                veriTut.Fill(dt);
+
+                dt.Columns.Add("TamAd", typeof(string), "yazar_adi + ' ' + yazar_soyadi");
+
+                cbYazari.DataSource = dt;
+                cbYazari.DisplayMember = "TamAd";
+                cbYazari.ValueMember = "yazar_id";
+
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -33,8 +33,38 @@ namespace Library_Management_System.Books
 
         private void roundedButtonControl1_Click(object sender, EventArgs e)
         {
-            
-            
+            using (var baglanti = Database.GetSqlConnection())
+            {
+
+                // baglanti.Open();
+
+                SqlCommand sorgu = new SqlCommand(
+                    " INSERT INTO kitaplar (kitap_adi, yazari, yayinevi, tur, cilt_no, fiyat, basim_yili) " +
+                    " VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7) ", baglanti);
+
+                sorgu.Parameters.AddWithValue("@p1", textBox1.Text);
+                sorgu.Parameters.AddWithValue("@p2", cbYazari.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p3", cbYayinevi.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p4", cbTuru.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p5", textBox6.Text);
+                sorgu.Parameters.AddWithValue("@p6", textBox5.Text);
+                sorgu.Parameters.AddWithValue("@p7", textBox7.Text);
+
+                sorgu.ExecuteNonQuery();
+
+                // Formu temizle
+                textBox1.Text = ""; //textBox1.Clear();
+                cbYazari.SelectedValue = 0;
+                cbYayinevi.SelectedValue = 0;
+                cbTuru.SelectedValue = 0;
+                textBox5.Text = "";
+                textBox6.Text = "";
+                textBox7.Text = "";
+                MessageBox.Show("Kitap eklendi.");
+
+
+            }
+
         }
         
         private void gradientPanel1_Paint(object sender, PaintEventArgs e)

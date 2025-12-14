@@ -344,6 +344,7 @@
             this.btnSorgula.TabIndex = 21;
             this.btnSorgula.Text = "Sorgula";
             this.btnSorgula.UseVisualStyleBackColor = false;
+            this.btnSorgula.Click += new System.EventHandler(this.btnSorgula_Click);
             // 
             // lblKitapId
             // 

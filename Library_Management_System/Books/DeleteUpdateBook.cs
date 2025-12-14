@@ -17,6 +17,27 @@ namespace Library_Management_System.Books
         {
             InitializeComponent();
             timer1.Start();
+            YazarDoldur();
+        }
+
+        // ---------------- YAZAR DOLDUR ----------------
+        public void YazarDoldur()
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+
+                SqlCommand sorgu = new SqlCommand("SELECT * from yazarlar", baglanti);
+                SqlDataAdapter veriTut = new SqlDataAdapter(sorgu);
+                DataTable dt = new DataTable();
+                veriTut.Fill(dt);
+
+                dt.Columns.Add("TamAd", typeof(string), "yazar_adi + ' ' + yazar_soyadi");
+
+                cbYazari.DataSource = dt;
+                cbYazari.DisplayMember = "TamAd";
+                cbYazari.ValueMember = "yazar_id";
+
+            }
         }
 
         Random rnd = new Random();

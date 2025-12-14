@@ -57,5 +57,26 @@ namespace Library_Management_System.Books
                 verioku.Close();
             }
         }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+                SqlCommand sorgu = new SqlCommand("UPDATE kitaplar SET yazari=@p1, yayinevi=@p2, tur=@p3, fiyat=@p4, cilt_no=@p5, basim_yili=@p6 WHERE  kitap_adi=@p7", baglanti);
+                sorgu.Parameters.AddWithValue("@p1", cbYazari.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p2", cbYayinevi.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p3", cbTuru.SelectedValue);
+                sorgu.Parameters.AddWithValue("@p4", textBox5.Text);
+                sorgu.Parameters.AddWithValue("@p5", textBox6.Text);
+                sorgu.Parameters.AddWithValue("@p6", textBox7.Text);
+                sorgu.Parameters.AddWithValue("@p7", textBox1.Text);
+
+
+
+                sorgu.ExecuteNonQuery();
+
+                MessageBox.Show("Kitap güncellendi.");
+            }
+        }
     }
 }

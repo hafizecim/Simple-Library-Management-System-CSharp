@@ -161,6 +161,7 @@
             this.btnGuncelle.TabIndex = 15;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = false;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // cbTuru
             // 

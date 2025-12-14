@@ -78,5 +78,34 @@ namespace Library_Management_System.Books
                 MessageBox.Show("Kitap güncellendi.");
             }
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            if (lblKitapId.Text == null)
+            {
+                MessageBox.Show("Önce kitap sorgulayın.");
+                return;
+            }
+
+            DialogResult sonuc = MessageBox.Show(
+                "Bu kitabı silmek istediğinize emin misiniz?",
+                "Silme Onayı",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+            if (sonuc == DialogResult.No) return;
+
+            using (SqlConnection baglanti = Database.GetSqlConnection())
+            {
+                SqlCommand sorgu = new SqlCommand("DELETE FROM kitaplar WHERE kitap_id =@p1", baglanti);
+
+                sorgu.Parameters.AddWithValue("@p1", lblKitapId.Text);
+                sorgu.ExecuteNonQuery();
+
+                MessageBox.Show("Kitap silindi.");
+
+            }
+        }
     }
 }

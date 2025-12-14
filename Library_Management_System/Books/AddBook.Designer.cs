@@ -90,6 +90,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(236, 26);
             this.textBox7.TabIndex = 20;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // textBox6
             // 
@@ -98,6 +99,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(236, 26);
             this.textBox6.TabIndex = 19;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox5
             // 
@@ -106,6 +108,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(236, 26);
             this.textBox5.TabIndex = 18;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // button1
             // 
@@ -178,6 +181,7 @@
             this.cbTuru.Name = "cbTuru";
             this.cbTuru.Size = new System.Drawing.Size(234, 28);
             this.cbTuru.TabIndex = 11;
+            this.cbTuru.SelectedIndexChanged += new System.EventHandler(this.cbTuru_SelectedIndexChanged);
             // 
             // cbYayinevi
             // 
@@ -187,6 +191,7 @@
             this.cbYayinevi.Name = "cbYayinevi";
             this.cbYayinevi.Size = new System.Drawing.Size(234, 28);
             this.cbYayinevi.TabIndex = 10;
+            this.cbYayinevi.SelectedIndexChanged += new System.EventHandler(this.cbYayinevi_SelectedIndexChanged);
             // 
             // cbYazari
             // 
@@ -196,6 +201,7 @@
             this.cbYazari.Name = "cbYazari";
             this.cbYazari.Size = new System.Drawing.Size(234, 28);
             this.cbYazari.TabIndex = 9;
+            this.cbYazari.SelectedIndexChanged += new System.EventHandler(this.cbYazari_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -204,6 +210,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(592, 26);
             this.textBox1.TabIndex = 8;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label8
             // 
@@ -216,6 +223,7 @@
             this.label8.Size = new System.Drawing.Size(92, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Basım Yılı:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -228,6 +236,7 @@
             this.label7.Size = new System.Drawing.Size(57, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Fiyatı:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -240,6 +249,7 @@
             this.label6.Size = new System.Drawing.Size(80, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Yayınevi:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -252,6 +262,7 @@
             this.label5.Size = new System.Drawing.Size(67, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Cilt No:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -264,6 +275,7 @@
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Türü:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -276,6 +288,7 @@
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Yazarı:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -301,6 +314,7 @@
             this.label1.Size = new System.Drawing.Size(209, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kitap Ekle";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // timer1
             // 

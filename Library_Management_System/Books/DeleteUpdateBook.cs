@@ -19,6 +19,7 @@ namespace Library_Management_System.Books
             timer1.Start();
             YazarDoldur();
             YayineviDoldur();
+            TurDoldur();
         }
 
         // ---------------- YAZAR DOLDUR ----------------
@@ -55,6 +56,24 @@ namespace Library_Management_System.Books
                 cbYayinevi.DataSource = dt;
                 cbYayinevi.DisplayMember = "yayinevi";
                 cbYayinevi.ValueMember = "yayinevi_id";
+
+            }
+        }
+
+        // ---------------- TUR DOLDUR ----------------
+        public void TurDoldur()
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+
+                SqlCommand sorgu = new SqlCommand("SELECT * from tur", baglanti);
+                SqlDataAdapter veriTut = new SqlDataAdapter(sorgu);
+                DataTable dt = new DataTable();
+                veriTut.Fill(dt);
+
+                cbTuru.DataSource = dt;
+                cbTuru.DisplayMember = "tur_ad";
+                cbTuru.ValueMember = "tur_id";
 
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,21 @@ namespace Library_Management_System.Books
         {
             InitializeComponent();
             timer1.Start();
+            KitaplarListele();
+        }
+
+        private void KitaplarListele()
+        {
+            using (var baglanti = Database.GetSqlConnection())
+            {
+                SqlCommand sorgu = new SqlCommand("SELECT * FROM kitaplar", baglanti);
+                SqlDataAdapter veriTut = new SqlDataAdapter(sorgu);
+                DataTable veriler = new DataTable();
+                veriTut.Fill(veriler);
+                dataGridView1.DataSource = veriler;
+
+            }
+
         }
 
         Random rnd = new Random();

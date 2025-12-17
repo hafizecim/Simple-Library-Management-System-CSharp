@@ -99,6 +99,7 @@
             this.btnGeri.TabIndex = 10;
             this.btnGeri.Text = "Geri";
             this.btnGeri.UseVisualStyleBackColor = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
             // ViewBooks
             // 

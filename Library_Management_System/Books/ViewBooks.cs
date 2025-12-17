@@ -24,5 +24,12 @@ namespace Library_Management_System.Books
             gradientPanel1.BottomColor = Color.FromArgb(rnd.Next(255), rnd.Next(255), rnd.Next(255));
             gradientPanel1.Invalidate();
         }
+
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            BooksManager ana = new BooksManager();  // Önceki formu oluştur
+            ana.Show();                   // Önceki formu göster
+            this.Close();                 // Şu anki formu kapat
+        }
     }
 }
